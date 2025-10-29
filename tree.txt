@@ -1,0 +1,526 @@
+src/kuka_robot_descriptions
+├── CONTRIBUTING.md
+├── kuka_agilus_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── kr10_r1100_2_joint_limits.yaml
+│   │   ├── kr6_r700_sixx_joint_limits.yaml
+│   │   ├── kr6_r900_sixx_joint_limits.yaml
+│   │   ├── opw_kinematics_kr6r700sixx.yaml
+│   │   └── opw_parameters_kr6r900_2.yaml
+│   ├── kuka_agilus_support.dsv
+│   ├── launch
+│   │   ├── test_kr10r1100_2.launch.py
+│   │   ├── test_kr6_r700_sixx.launch.py
+│   │   └── test_kr6_r900_sixx.launch.py
+│   ├── meshes
+│   │   ├── kr10_r1100_2
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.stl
+│   │   │       ├── link_1.stl
+│   │   │       ├── link_2.stl
+│   │   │       ├── link_3.stl
+│   │   │       ├── link_4.stl
+│   │   │       ├── link_5.stl
+│   │   │       └── link_6.stl
+│   │   ├── kr6_r700_sixx
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.dae
+│   │   │       ├── link_1.dae
+│   │   │       ├── link_2.dae
+│   │   │       ├── link_3.dae
+│   │   │       ├── link_4.dae
+│   │   │       ├── link_5.dae
+│   │   │       └── link_6.dae
+│   │   └── kr6_r900_sixx
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.dae
+│   │           ├── link_1.dae
+│   │           ├── link_2.dae
+│   │           ├── link_3.dae
+│   │           ├── link_4.dae
+│   │           ├── link_5.dae
+│   │           └── link_6.dae
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_agilus.py
+│   └── urdf
+│       ├── kr10_r1100_2_macro.xacro
+│       ├── kr10_r1100_2.urdf.xacro
+│       ├── kr6_r700_sixx_macro.xacro
+│       ├── kr6_r700_sixx.urdf.xacro
+│       ├── kr6_r900_sixx_macro.xacro
+│       ├── kr6_r900_sixx.urdf.xacro
+│       └── kr_agilus_ros2_control_macro.xacro
+├── kuka_cybertech_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   └── kr16_r2010_2_joint_limits.yaml
+│   ├── kuka_cybertech_support.dsv
+│   ├── launch
+│   │   └── test_kr16_r2010_2.launch.py
+│   ├── meshes
+│   │   └── kr16_r2010_2
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.stl
+│   │           ├── link_1.stl
+│   │           ├── link_2.stl
+│   │           ├── link_3.stl
+│   │           ├── link_4.stl
+│   │           ├── link_5.stl
+│   │           └── link_6.stl
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_cybertech.py
+│   └── urdf
+│       ├── kr16_r2010_2_macro.xacro
+│       ├── kr16_r2010_2.urdf.xacro
+│       └── kr_cybertech_ros2_control_macro.xacro
+├── kuka_fortec_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── kr240_r3330_joint_limits.yaml
+│   │   └── kr560_r3100_2_joint_limits.yaml
+│   ├── kuka_fortec_support.dsv
+│   ├── launch
+│   │   ├── test_kr240r3330.launch.py
+│   │   └── test_kr560r3100_2.launch.py
+│   ├── meshes
+│   │   ├── kr240_r3330
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.dae
+│   │   │       ├── link_1.dae
+│   │   │       ├── link_2.dae
+│   │   │       ├── link_3.dae
+│   │   │       ├── link_4.dae
+│   │   │       ├── link_5.dae
+│   │   │       └── link_6.dae
+│   │   └── kr560_r3100_2
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.dae
+│   │           ├── link_1.dae
+│   │           ├── link_2.dae
+│   │           ├── link_3.dae
+│   │           ├── link_4.dae
+│   │           ├── link_5.dae
+│   │           └── link_6.dae
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_fortec.py
+│   └── urdf
+│       ├── kr240_r3330_macro.xacro
+│       ├── kr240_r3330.urdf.xacro
+│       ├── kr560_r3100_2_macro.xacro
+│       ├── kr560_r3100_2.urdf.xacro
+│       └── kr_fortec_ros2_control_macro.xacro
+├── kuka_gazebo
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── gazebo
+│   │   └── kuka_gazebo.xacro
+│   ├── include
+│   │   └── kuka_gazebo
+│   │       └── moveit_example.hpp
+│   ├── launch
+│   │   └── gazebo.launch.py
+│   ├── package.xml
+│   ├── src
+│   │   └── gazebo_lbr_iisy3_r760_moveit_example.cpp
+│   └── world
+│       ├── box.sdf
+│       └── empty_world.sdf
+├── kuka_iontec_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   └── kr70_r2100_joint_limits.yaml
+│   ├── kuka_iontec_support.dsv
+│   ├── launch
+│   │   └── test_kr70r2100.launch.py
+│   ├── meshes
+│   │   └── kr70_r2100
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.dae
+│   │           ├── link_1.dae
+│   │           ├── link_2.dae
+│   │           ├── link_3.dae
+│   │           ├── link_4.dae
+│   │           ├── link_5.dae
+│   │           └── link_6.dae
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_iontec.py
+│   └── urdf
+│       ├── kr70_r2100_macro.xacro
+│       ├── kr70_r2100.urdf.xacro
+│       └── kr_iontec_ros2_control_macro.xacro
+├── kuka_kr_moveit_config
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── chomp_planning.yaml
+│   │   ├── kinematics.yaml
+│   │   ├── moveit_controllers.yaml
+│   │   ├── ompl_planning.yaml
+│   │   ├── pilz_cartesian_limits.yaml
+│   │   ├── pilz_industrial_motion_planner_planning.yaml
+│   │   └── stomp_planning.yaml
+│   ├── launch
+│   │   ├── moveit_planning_fake_hardware.launch.py
+│   │   └── moveit_planning_gazebo.launch.py
+│   ├── package.xml
+│   └── srdf
+│       ├── kr_arm_macro.xacro
+│       └── kr_arm.srdf.xacro
+├── kuka_lbr_iisy_moveit_config
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── chomp_planning.yaml
+│   │   ├── kinematics.yaml
+│   │   ├── moveit_controllers.yaml
+│   │   ├── ompl_planning.yaml
+│   │   ├── pilz_cartesian_limits.yaml
+│   │   └── stomp_planning.yaml
+│   ├── launch
+│   │   ├── moveit_planning_fake_hardware.launch.py
+│   │   └── moveit_planning_gazebo.launch.py
+│   ├── package.xml
+│   └── srdf
+│       ├── lbr_iisy11_r1300_arm.srdf.xacro
+│       ├── lbr_iisy15_r930_arm.srdf.xacro
+│       ├── lbr_iisy3_r760_arm.srdf.xacro
+│       └── lbr_iisy_arm.macro.xacro
+├── kuka_lbr_iisy_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── lbr_iisy11_r1300_joint_limits.yaml
+│   │   ├── lbr_iisy15_r930_joint_limits.yaml
+│   │   └── lbr_iisy3_r760_joint_limits.yaml
+│   ├── kuka_lbr_iisy_support.dsv
+│   ├── launch
+│   │   ├── test_lbr_iisy11_r1300.launch.py
+│   │   ├── test_lbr_iisy15_r930.launch.py
+│   │   └── test_lbr_iisy3_r760.launch.py
+│   ├── meshes
+│   │   ├── lbr_iisy11_r1300
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.stl
+│   │   │       ├── link_1.stl
+│   │   │       ├── link_2.stl
+│   │   │       ├── link_3.stl
+│   │   │       ├── link_4.stl
+│   │   │       ├── link_5.stl
+│   │   │       └── link_6.stl
+│   │   ├── lbr_iisy15_r930
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.stl
+│   │   │       ├── link_1.stl
+│   │   │       ├── link_2.stl
+│   │   │       ├── link_3.stl
+│   │   │       ├── link_4.stl
+│   │   │       ├── link_5.stl
+│   │   │       └── link_6.stl
+│   │   └── lbr_iisy3_r760
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.stl
+│   │           ├── link_1.stl
+│   │           ├── link_2.stl
+│   │           ├── link_3.stl
+│   │           ├── link_4.stl
+│   │           ├── link_5.stl
+│   │           └── link_6.stl
+│   ├── package.xml
+│   ├── test
+│   │   └── test_lbr_iisy.py
+│   └── urdf
+│       ├── lbr_iisy11_r1300_macro.xacro
+│       ├── lbr_iisy11_r1300.urdf.xacro
+│       ├── lbr_iisy15_r930_macro.xacro
+│       ├── lbr_iisy15_r930.urdf.xacro
+│       ├── lbr_iisy3_r760_macro.xacro
+│       ├── lbr_iisy3_r760.urdf.xacro
+│       └── lbr_iisy_ros2_control_macro.xacro
+├── kuka_lbr_iiwa_moveit_config
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── chomp_planning.yaml
+│   │   ├── kinematics.yaml
+│   │   ├── moveit_controllers.yaml
+│   │   ├── ompl_planning.yaml
+│   │   ├── pilz_cartesian_limits.yaml
+│   │   └── stomp_planning.yaml
+│   ├── launch
+│   │   └── moveit_planning_fake_hardware.launch.py
+│   ├── package.xml
+│   └── srdf
+│       ├── lbr_iiwa14_r820_arm.srdf.xacro
+│       └── lbr_iiwa_arm.macro.xacro
+├── kuka_lbr_iiwa_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   └── lbr_iiwa14_r820_joint_limits.yaml
+│   ├── kuka_lbr_iiwa_support.dsv
+│   ├── launch
+│   │   └── test_lbr_iiwa14_r820.launch.py
+│   ├── meshes
+│   │   └── lbr_iiwa14_r820
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   ├── link_6.stl
+│   │       │   └── link_7.stl
+│   │       └── visual
+│   │           ├── base_link.stl
+│   │           ├── link_1.stl
+│   │           ├── link_2.stl
+│   │           ├── link_3.stl
+│   │           ├── link_4.stl
+│   │           ├── link_5.stl
+│   │           ├── link_6.stl
+│   │           └── link_7.stl
+│   ├── package.xml
+│   ├── test
+│   │   └── test_lbr_iiwa.py
+│   └── urdf
+│       ├── lbr_iiwa14_r820_macro.xacro
+│       ├── lbr_iiwa14_r820.urdf.xacro
+│       └── lbr_iiwa_ros2_control_macro.xacro
+├── kuka_mock_hardware_interface
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── hardware_interface.xml
+│   ├── include
+│   │   └── kuka_mock_hardware_interface
+│   │       ├── hardware_interface.hpp
+│   │       ├── hardware_interface_types.hpp
+│   │       └── visibility_control.h
+│   ├── package.xml
+│   └── src
+│       └── hardware_interface.cpp
+├── kuka_quantec_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── kr150_r3100_2_joint_limits.yaml
+│   │   ├── kr210_r2700_2_joint_limits.yaml
+│   │   └── kr210_r3100_2_joint_limits.yaml
+│   ├── kuka_quantec_support.dsv
+│   ├── launch
+│   │   ├── test_kr150_r3100_2.launch.py
+│   │   ├── test_kr210_r2700_2.launch.py
+│   │   └── test_kr210_r3100_2.launch.py
+│   ├── meshes
+│   │   ├── kr150_r3100_2
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.dae
+│   │   │       ├── link_1.dae
+│   │   │       ├── link_2.dae
+│   │   │       ├── link_3.dae
+│   │   │       ├── link_4.dae
+│   │   │       ├── link_5.dae
+│   │   │       └── link_6.dae
+│   │   ├── kr210_r2700_2
+│   │   │   ├── collision
+│   │   │   │   ├── base_link.stl
+│   │   │   │   ├── link_1.stl
+│   │   │   │   ├── link_2.stl
+│   │   │   │   ├── link_3.stl
+│   │   │   │   ├── link_4.stl
+│   │   │   │   ├── link_5.stl
+│   │   │   │   └── link_6.stl
+│   │   │   └── visual
+│   │   │       ├── base_link.stl
+│   │   │       ├── link_1.stl
+│   │   │       ├── link_2.stl
+│   │   │       ├── link_3.stl
+│   │   │       ├── link_4.stl
+│   │   │       ├── link_5.stl
+│   │   │       └── link_6.stl
+│   │   └── kr210_r3100_2
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.stl
+│   │           ├── link_1.stl
+│   │           ├── link_2.stl
+│   │           ├── link_3.stl
+│   │           ├── link_4.stl
+│   │           ├── link_5.stl
+│   │           └── link_6.stl
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_quantec.py
+│   └── urdf
+│       ├── kr150_r3100_2_macro.xacro
+│       ├── kr150_r3100_2.urdf.xacro
+│       ├── kr210_r2700_2_macro.xacro
+│       ├── kr210_r2700_2.urdf.xacro
+│       ├── kr210_r3100_2_macro.xacro
+│       ├── kr210_r3100_2.urdf.xacro
+│       └── kr_quantec_ros2_control_macro.xacro
+├── kuka_radars_support
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   └── kr50_r2100_joint_limits.yaml
+│   ├── kuka_radars_support.dsv
+│   ├── launch
+│   │   └── test_kr50r2100.launch.py
+│   ├── meshes
+│   │   └── kr70_r2100
+│   │       ├── collision
+│   │       │   ├── base_link.stl
+│   │       │   ├── link_1.stl
+│   │       │   ├── link_2.stl
+│   │       │   ├── link_3.stl
+│   │       │   ├── link_4.stl
+│   │       │   ├── link_5.stl
+│   │       │   └── link_6.stl
+│   │       └── visual
+│   │           ├── base_link.dae
+│   │           ├── link_1.dae
+│   │           ├── link_2.dae
+│   │           ├── link_3.dae
+│   │           ├── link_4.dae
+│   │           ├── link_5.dae
+│   │           └── link_6.dae
+│   ├── package.xml
+│   ├── test
+│   │   └── test_kr_radars.py
+│   └── urdf
+│       ├── kr50_r2100_macro.xacro
+│       ├── kr50_r2100.urdf.xacro
+│       └── kr_radars_ros2_control_macro.xacro
+├── kuka_radars_support.zip
+├── kuka_resources
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── fake_hardware_config_6_axis.yaml
+│   │   ├── fake_hardware_config_7_axis.yaml
+│   │   ├── planning_6_axis.rviz
+│   │   ├── planning_7_axis.rviz
+│   │   ├── view_6_axis_planning_scene.rviz
+│   │   ├── view_6_axis_urdf.rviz
+│   │   ├── view_7_axis_planning_scene.rviz
+│   │   └── view_7_axis_urdf.rviz
+│   ├── launch
+│   │   └── fake_hardware_planning_template.launch.py
+│   ├── package.xml
+│   └── urdf
+│       ├── common_colours.xacro
+│       ├── common_constants.xacro
+│       └── common_materials.xacro
+├── kuka_robot_descriptions
+│   ├── CHANGELOG.rst
+│   ├── CMakeLists.txt
+│   └── package.xml
+├── LICENSE
+└── README.md
+
+121 directories, 402 files
