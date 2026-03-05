@@ -1,7 +1,28 @@
 ###############################################################################
 
+## this will just run the container already built 
+cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
+	./scripts/run_dev.sh --skip_image_build
+
+## if container rebuild is needed:
 cd ${ISAAC_ROS_WS}/src/isaac_ros_common && \
    ./scripts/run_dev.sh
+
+###############################################################################
+## for benchmarking
+
+## run vrpn - make sure you are connected to vr-net, 
+## make sure the ip matches the nuc behind you 
+ros2 launch vrpn_mocap client.launch.yaml server:=10.212.0.51 port:=3883
+
+##  
+
+## start recording 
+ros2 service call /benchmark_enable std_srvs/srv/SetBool "{data: true}"
+
+## stop recording
+ros2 service call /benchmark_enable std_srvs/srv/SetBool "{data: false}"
+
 
 ###############################################################################
 ## for getting colcon to build:
@@ -81,9 +102,7 @@ ros2 launch kuka_rsi_driver startup.launch.py   driver_version:=rsi_only   mode:
 
 terminal 2:
 
-ros2 lifecycle set robot_manager configure
-
-ros2 lifecycle set robot_manager activate
+ros2 lifecycle set robot_manager configure && ros2 lifecycle set robot_manager activate
 
 ## wait for "READY START ROBOT NOW !!!!!!!!!" message from KukaRSIHardwareInterface and start the robot.
 
@@ -96,8 +115,29 @@ ros2 launch kuka_kr50_E1_moveit_rsi moveit_planning_rsi_RVIZ.launch.py
 # REVERSE IF AWAY FROM SATTELITE - IF NEED BE	
 ros2 topic pub /relative_pose_cmd geometry_msgs/Pose '{position: {x: -1, y: 0.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' --once
 
+## forward 
+ros2 topic pub /relative_pose_cmd geometry_msgs/Pose '{position: {x: 0.5, y: 0.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}' --once
+
+ros2 topic pub /relative_pose_cmd geometry_msgs/Pose '{position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {x: 0.0436194, y: 0.0, z: 0.0, w: 0.9990482}}' --once
+
+
 ros2 topic pub /send_to std_msgs/msg/String "data: 'START'" --once
 
-## to shutdown the system run this:
+ros2 topic pub /GRASP_flags std_msgs/msg/String "data: 'HOME'" --once
+
+### to talk to the GRASP
+ros2 run string_republisher string_republisher_node
 
  
+##################################################################
+
+## to switch between tool frames 
+
+# GRASP_1_1
+ros2 topic pub --once /set_tool_end std_msgs/msg/String "{data: 'GRASP_1_1'}"
+
+# GRASP_2_1
+ros2 topic pub --once /set_tool_end std_msgs/msg/String "{data: 'GRASP_2_1'}"
+
+## restart for short range
+ros2 lifecycle set robot_manager configure && ros2 lifecycle set robot_manager activate && ros2 topic pub --once /set_tool_end std_msgs/msg/String "{data: 'GRASP_1_1'}"

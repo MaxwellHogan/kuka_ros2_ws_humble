@@ -10,7 +10,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 add_executable(kr50_E1_moveitcpp_driver src/kr50_E1_moveitcpp_driver.cpp)
-# add_executable(kr50_E1_moveitcpp_driver_v1 src/kr50_E1_moveitcpp_driver_v1.cpp)
+add_executable(kr50_E1_benchmark src/kr50_E1_benchmark.cpp)
 
 ament_target_dependencies(
   kr50_E1_moveitcpp_driver
@@ -21,16 +21,20 @@ ament_target_dependencies(
   sensor_msgs
 )
 
-# ament_target_dependencies(
-#   kr50_E1_moveitcpp_driver_v1
-#   rclcpp
-#   moveit_ros_planning_interface
-#   moveit_core
-#   geometry_msgs
-#   sensor_msgs
-# )
+ament_target_dependencies(
+  kr50_E1_benchmark
+  rclcpp
+  moveit_ros_planning_interface
+  moveit_core
+  geometry_msgs
+  sensor_msgs
+)
 
 install(TARGETS kr50_E1_moveitcpp_driver
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS kr50_E1_benchmark
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -80,5 +80,6 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/mnt/nova_ssd/workspaces/isaac_ros-dev/src/kuka_kr50_E1_moveit_rsi"
 }
