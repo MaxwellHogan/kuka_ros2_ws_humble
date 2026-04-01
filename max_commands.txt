@@ -49,7 +49,7 @@ ros2 launch spinnaker_camera_driver driver_node.launch.py serial:="'24521837'"
 ###############################################################################   
 this is the kuka stuff   
 
-## start rdi interface
+## start rsi interface
 ros2 launch kuka_rsi_driver startup_with_rviz.launch.py   robot_family:=radars   robot_model:=kr50_r2100   driver_version:=rsi_only   mode:=hardware   use_gpio:=false   client_port:=59152
 
 ## joint state control with gui 
@@ -98,7 +98,7 @@ For Gerard/ Ziwei / ABDULLA to start the interface:
 
 terminal 1 - startup the driver:
 
-ros2 launch kuka_rsi_driver startup.launch.py   driver_version:=rsi_only   mode:=hardware   client_ip:=192.168.253.100   client_port:=59152   controller_ip:=192.168.253.10   robot_model:=kr50_r2100   use_gpio:=false   robot_family:=radars   jtc_config:="src/kuka_drivers/kuka_rsi_driver/config/joint_trajectory_controller_config.yaml"
+ros2 launch kuka_rsi_driver startup.launch.py   driver_version:=rsi_only   mode:=hardware   client_ip:=192.168.253.100   client_port:=59152   controller_ip:=192.168.253.10   robot_model:=kr50_r2100   use_gpio:=false   robot_family:=radars  controller_config:="src/kuka_drivers/kuka_rsi_driver/config/ros2_controller_config_rsi_only.yaml" jtc_config:="src/kuka_drivers/kuka_rsi_driver/config/joint_trajectory_controller_config.yaml"
 
 terminal 2:
 
@@ -141,3 +141,30 @@ ros2 topic pub --once /set_tool_end std_msgs/msg/String "{data: 'GRASP_2_1'}"
 
 ## restart for short range
 ros2 lifecycle set robot_manager configure && ros2 lifecycle set robot_manager activate && ros2 topic pub --once /set_tool_end std_msgs/msg/String "{data: 'GRASP_1_1'}"
+
+
+
+the hardware_interface_rsi_only.cpp is an important location for getting arguements into the C++ domain 
+
+From the original implementation, I have added a function to determine if a joint is rotary or linear,
+the launch requires to read the RSI config file with rsi_ethernet_config_file, the default for this is 
+the one I use under 
+
+ros2 launch kuka_kr50_E1_moveit_rsi RAMI_full_cell_control.launch.py
+
+ros2 launch kuka_rsi_driver startup_with_rviz.launch.py namespace:=arm1 driver_version:=rsi_only mode:=hardware client_ip:=192.168.253.100 client_port:=59152 controller_ip:=192.168.253.10 robot_model:=kr50_r2100 use_gpio:=false robot_family:=radars controller_config:="src/kuka_drivers/kuka_rsi_driver/config/ros2_controller_config_rsi_only_arm1.yaml" jtc_config:="src/kuka_drivers/kuka_rsi_driver/config/joint_trajectory_controller_config_arm1.yaml"
+
+ros2 lifecycle set arm1/robot_manager configure && ros2 lifecycle set arm1/robot_manager activate
+
+ros2 launch kuka_rsi_simulator kuka_rsi_simulator.launch.py rsi_ip_address:=127.0.0.1 rsi_port:=59152  sim_mode:=rsi_simulator_with_E1 save_file:=True robot_namespace:=arm1
+
+ros2 run kuka_rsi_simulator a5_wobbler --ros-args -p namespace:=arm1
+
+ros2 launch kuka_rsi_driver startup.launch.py namespace:=arm2 driver_version:=rsi_only mode:=hardware client_ip:=192.168.253.100 client_port:=59153 controller_ip:=192.168.253.20 robot_model:=kr50_r2100 use_gpio:=false robot_family:=radars controller_config:="src/kuka_drivers/kuka_rsi_driver/config/ros2_controller_config_rsi_only_arm2.yaml" jtc_config:="src/kuka_drivers/kuka_rsi_driver/config/joint_trajectory_controller_config_arm2.yaml" y:=3170
+
+ros2 lifecycle set arm2/robot_manager configure && ros2 lifecycle set arm2/robot_manager activate
+
+ros2 launch kuka_rsi_simulator kuka_rsi_simulator.launch.py rsi_ip_address:=127.0.0.1 rsi_port:=59153  sim_mode:=rsi_simulator_with_E1 save_file:=True robot_namespace:=arm2 E1_start:=1.0
+
+
+
